@@ -27,9 +27,9 @@ const COL   = 'products'; // Firestore collection name
 
 // ── Unsplash image URLs (тематические фото фасадов) ───────────
 const UNSPLASH = {
-  hero:  'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop',
-  about: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80&fit=crop',
-  thermo1: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop',
+  hero:    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=80&fit=crop',
+  about:   'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80&fit=crop',
+  thermo1: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80&fit=crop',
   thermo2: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80&fit=crop',
   poly1:   'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&fit=crop',
   poly2:   'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80&fit=crop',
@@ -205,7 +205,7 @@ const Header = () => `
   <div class="container">
     <div class="header-inner">
       <a href="#home" class="logo">
-        <div class="logo-name">Doni<span>Stroi</span></div>
+        <img src="images/logo.jpg" alt="DoniStroi" class="logo-img">
         <div class="logo-tagline">Фасадные материалы · Атырау</div>
       </a>
       <nav class="nav-links">
@@ -241,7 +241,7 @@ const Footer = () => `
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="logo-name" style="font-family:'Cormorant Garamond',serif;font-size:1.6rem">Doni<span style="color:var(--clr-accent)">Stroi</span></div>
+        <img src="images/logo.jpg" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
         <p>Производство и установка современных фасадных материалов в Атырау и Казахстане. Более 5 лет опыта.</p>
       </div>
       <div class="footer-col"><h5>Навигация</h5><ul>
@@ -257,7 +257,7 @@ const Footer = () => `
       <div class="footer-col"><h5>Контакты</h5><ul>
         <li><a href="tel:+77751731067">+7 775 173-10-67</a></li>
         <li><a href="#contacts">Амандосова 74а, Атырау</a></li>
-        <li><a href="mailto:info@donistroi.kz">info@donistroi.kz</a></li>
+        <li><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
@@ -681,7 +681,7 @@ const ContactsPage = () => `
         <div class="contact-info">
           <div class="contact-card"><div class="contact-icon">${Icons.phone}</div><div><div class="contact-label">Телефон</div><div class="contact-value"><a href="tel:+77751731067">+7 775 173-10-67</a></div></div></div>
           <div class="contact-card"><div class="contact-icon">${Icons.map}</div><div><div class="contact-label">Адрес</div><div class="contact-value">Амандосова 74а, Атырау</div></div></div>
-          <div class="contact-card"><div class="contact-icon">${Icons.mail}</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:info@donistroi.kz">info@donistroi.kz</a></div></div></div>
+          <div class="contact-card"><div class="contact-icon">${Icons.mail}</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></div></div></div>
         </div>
         <div class="contact-map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10758.4!2d51.883!3d47.1067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f8d4ed7e3b91df%3A0x6c0af80a2e2b2c37!2z0JDRgtGL0YDQsNGDLCDQkNGC0YvRgNCw0YMg0JzQvtC70LDRiNC6!5e0!3m2!1sru!2skz!4v1700000000000" width="100%" height="100%" style="border:0;filter:grayscale(70%) invert(5%)" allowfullscreen loading="lazy"></iframe>

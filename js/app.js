@@ -3,7 +3,7 @@
    Firebase Firestore + Unsplash images
    ============================================================ */
 
-// ── Firebase SDK ──────────────────────────────────────────────
+// ── Firebase SDK ──────────────────────────────────────────────v
 import { initializeApp }                        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getFirestore, collection, getDocs,
          addDoc, updateDoc, deleteDoc,

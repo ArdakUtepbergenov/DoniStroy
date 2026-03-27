@@ -100,7 +100,7 @@ const SEED_PRODUCTS = [
 ];
 
 // ── State ─────────────────────────────────────────────────────
-const ADMIN_CREDENTIALS = { login: 'admin', password: 'donistroi2024' };
+const ADMIN_CREDENTIALS = { login: 'admin', password: 'donistroi2026' };
 
 const State = {
   products: [],
@@ -459,7 +459,7 @@ const AboutPage = () => `
       <div class="about-content reveal">
         <div class="section-label">Наша история</div>
         <h2>Строим репутацию<br>год за годом</h2>
-        <p style="color:var(--clr-muted);margin:1.5rem 0">DoniStroi основана в 2019 году в Атырау. За это время мы реализовали более 200 проектов — от частных домов до крупных коммерческих объектов по всему Казахстану.</p>
+        <p style="color:var(--clr-muted);margin:1.5rem 0">DoniStroi основана в 2021 году в Атырау. За это время мы реализовали более 200 проектов — от частных домов до крупных коммерческих объектов по всему Казахстану.</p>
         <p style="color:var(--clr-muted);margin-bottom:1.5rem">Наша специализация — фасадные термопанели, полифасад и травертин. Мы не просто продаём материалы — мы предлагаем комплексное решение: консультацию, 3D-визуализацию, профессиональный монтаж и гарантию на результат.</p>
         <div style="display:flex;gap:2rem">
           ${[['200+','Проектов'],['5+','Лет опыта'],['20','Лет гарантии']].map(([n,l])=>`

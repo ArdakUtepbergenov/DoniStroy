@@ -3,7 +3,7 @@
    Firebase Firestore + Unsplash images
    ============================================================ */
 
-// ── Firebase SDK ──────────────────────────────────────────────v
+// ── Firebase SDK ──────────────────────────────────────────────
 import { initializeApp }                        from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getFirestore, collection, getDocs,
          addDoc, updateDoc, deleteDoc,
@@ -100,7 +100,7 @@ const SEED_PRODUCTS = [
 ];
 
 // ── State ─────────────────────────────────────────────────────
-const ADMIN_CREDENTIALS = { login: 'admin', password: 'donistroi2026' };
+const ADMIN_CREDENTIALS = { login: 'admin', password: 'donistroi2024' };
 
 const State = {
   products: [],
@@ -236,7 +236,33 @@ const Header = () => `
   <button class="btn btn-primary" onclick="openModal();closeMobileNav()">Оставить заявку</button>
 </nav>`;
 
-const Footer = () => `
+const BottomNav = () => `
+<nav class="bottom-nav">
+  <a href="#home" class="bnav-item ${State.currentPage==='home'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+    Главная
+  </a>
+  <a href="#catalog" class="bnav-item ${State.currentPage==='catalog'||State.currentPage==='product'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Каталог
+  </a>
+  <a class="bnav-item bnav-cta" onclick="openModal()" style="cursor:pointer" href="javascript:void(0)">
+    <div class="bnav-cta-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </div>
+  </a>
+  <a href="#services" class="bnav-item ${State.currentPage==='services'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12,2 2,7 12,12 22,7 12,2"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+    Услуги
+  </a>
+  <a href="#contacts" class="bnav-item ${State.currentPage==='contacts'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013 1.22h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.9a16 16 0 006 6l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    Контакты
+  </a>
+</nav>
+<a href="tel:+77751731067" class="float-phone" aria-label="Позвонить">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013 1.22h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.9a16 16 0 006 6l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+</a>`;
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -276,6 +302,12 @@ const HomePage = () => `
   <div class="container" style="width:100%;position:relative;z-index:2">
     <div class="hero-content">
       <div class="hero-badge"><span class="dot"></span>Атырау и весь Казахстан</div>
+      <!-- Mobile-only stat pills -->
+      <div class="hero-mobile-stats">
+        <div class="hero-pill"><strong>5+</strong> лет опыта</div>
+        <div class="hero-pill"><strong>200+</strong> объектов</div>
+        <div class="hero-pill"><strong>Гарантия</strong> 20 лет</div>
+      </div>
       <h1>Фасады, которые <em>говорят</em><br>сами за себя</h1>
       <p class="hero-desc">Производство и профессиональная установка термопанелей, полифасада и травертина. Преображаем здания — создаём впечатления.</p>
       <div class="hero-actions">
@@ -338,6 +370,12 @@ const HomePage = () => `
           <div class="tile-arrow">Подробнее ${Icons.arrow}</div>
         </div>
       </div>
+    </div>
+    <!-- Mobile scroll hint dots -->
+    <div class="services-scroll-hint">
+      <div class="scroll-dot active"></div>
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
     </div>
   </div>
 </section>
@@ -459,7 +497,7 @@ const AboutPage = () => `
       <div class="about-content reveal">
         <div class="section-label">Наша история</div>
         <h2>Строим репутацию<br>год за годом</h2>
-        <p style="color:var(--clr-muted);margin:1.5rem 0">DoniStroi основана в 2021 году в Атырау. За это время мы реализовали более 200 проектов — от частных домов до крупных коммерческих объектов по всему Казахстану.</p>
+        <p style="color:var(--clr-muted);margin:1.5rem 0">DoniStroi основана в 2019 году в Атырау. За это время мы реализовали более 200 проектов — от частных домов до крупных коммерческих объектов по всему Казахстану.</p>
         <p style="color:var(--clr-muted);margin-bottom:1.5rem">Наша специализация — фасадные термопанели, полифасад и травертин. Мы не просто продаём материалы — мы предлагаем комплексное решение: консультацию, 3D-визуализацию, профессиональный монтаж и гарантию на результат.</p>
         <div style="display:flex;gap:2rem">
           ${[['200+','Проектов'],['5+','Лет опыта'],['20','Лет гарантии']].map(([n,l])=>`
@@ -580,7 +618,7 @@ const CatalogPage = () => `
     <h1>Каталог продукции</h1>
   </div>
 </div>
-<section class="section">
+<section class="section catalog-page">
   <div class="container">
     <div class="catalog-layout">
       <aside class="catalog-sidebar reveal">
@@ -597,7 +635,13 @@ const CatalogPage = () => `
       </aside>
       <div>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
-          <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <!-- Mobile filter chips — horizontal scroll -->
+          <div class="m-filter-chips">
+            ${Object.entries(CAT).map(([k,v])=>`
+              <button class="m-chip ${State.currentCategory===k?'active':''}" onclick="filterCatalog('${k}')">${v}</button>`).join('')}
+          </div>
+          <!-- Desktop pill buttons -->
+          <div class="d-filter-pills" style="display:flex;gap:0.5rem;flex-wrap:wrap">
             ${Object.entries(CAT).map(([k,v])=>`
               <button class="btn btn-sm ${State.currentCategory===k?'btn-primary':'btn-ghost'}" onclick="filterCatalog('${k}')">${v}</button>`).join('')}
           </div>
@@ -868,7 +912,7 @@ const App = {
     const isHome = State.currentPage === 'home';
     app.innerHTML = Header() +
       `<main style="padding-top:${isHome?'0':'var(--header-h)'}">` + content + `</main>` +
-      Footer();
+      Footer() + BottomNav();
     this.afterRender();
   },
 
@@ -891,7 +935,15 @@ const App = {
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // Image URL preview in product form
+    // Sync scroll dots with services carousel
+    const grid = document.querySelector('.services-grid');
+    const dots = document.querySelectorAll('.scroll-dot');
+    if (grid && dots.length) {
+      grid.addEventListener('scroll', () => {
+        const idx = Math.round(grid.scrollLeft / grid.offsetWidth * (dots.length));
+        dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
+      }, { passive: true });
+    }
     const imgInput = document.getElementById('pImage');
     if (imgInput) {
       imgInput.addEventListener('input', () => {

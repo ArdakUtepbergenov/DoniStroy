@@ -1241,10 +1241,10 @@ footer {
   * { -webkit-tap-highlight-color: transparent; }
   body { font-size: 15px; }
 
-  /* ── Nav: hide desktop, show hamburger ─── */
+  /* ── Nav: hide desktop elements, NO hamburger (bottom nav used instead) ─── */
   .nav-links, .nav-phone { display: none; }
-  .hamburger { display: flex; }
-  .mobile-nav { display: flex; }
+  .hamburger { display: none; }
+  .mobile-nav { display: none !important; }
   .nav-cta .btn { display: none; }
 
   /* ── Typography: big & bold ─────────────────────────────── */
@@ -1829,4 +1829,22 @@ footer {
   }
   .m-filter-chips::-webkit-scrollbar { display: none; }
   .d-filter-pills { display: none !important; }
+}
+
+/* ── Mobile header call button (replaces hamburger) ─────────── */
+.mobile-header-call {
+  display: none;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.mobile-header-call:hover { background: var(--clr-accent2); }
+@media (max-width: 768px) {
+  .mobile-header-call { display: flex; }
 }

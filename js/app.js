@@ -205,7 +205,7 @@ const Header = () => `
   <div class="container">
     <div class="header-inner">
       <a href="#home" class="logo">
-        <img src="images/logo.png" alt="DoniStroi" class="logo-img">
+        <img src="images/logo.jpg" alt="DoniStroi" class="logo-img">
         <div class="logo-tagline">Фасадные материалы · Атырау</div>
       </a>
       <nav class="nav-links">
@@ -267,7 +267,7 @@ const BottomNav = () => `
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo.png" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
+        <img src="images/logo.jpg" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
         <p>Производство и установка современных фасадных материалов в Атырау и Казахстане. Более 5 лет опыта.</p>
       </div>
       <div class="footer-col"><h5>Навигация</h5><ul>

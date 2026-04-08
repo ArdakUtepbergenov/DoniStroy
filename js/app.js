@@ -205,7 +205,7 @@ const Header = () => `
   <div class="container">
     <div class="header-inner">
       <a href="#home" class="logo">
-        <img src="images/logo.png" alt="DoniStroi" class="logo-img">
+        <img src="images/logo.jpg" alt="DoniStroi" class="logo-img">
         <div class="logo-tagline">Фасадные материалы · Атырау</div>
       </a>
       <nav class="nav-links">
@@ -269,7 +269,7 @@ const Footer = () => `
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo.png" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
+        <img src="images/logo.jpg" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
         <p>Производство и установка современных фасадных материалов в Атырау и Казахстане. Более 5 лет опыта.</p>
       </div>
       <div class="footer-col"><h5>Навигация</h5><ul>
@@ -912,10 +912,37 @@ const App = {
       default:         content = HomePage();
     }
     const isHome = State.currentPage === 'home';
-    app.innerHTML = Header() +
-      `<main style="padding-top:${isHome?'0':'var(--header-h)'}">` + content + `</main>` +
-      Footer() + BottomNav();
-    this.afterRender();
+
+    // Smooth page transition — fade main out, swap, fade in
+    const oldMain = app.querySelector('main');
+    if (oldMain) {
+      oldMain.style.transition = 'opacity 0.18s ease';
+      oldMain.style.opacity = '0';
+    }
+
+    // Short delay so fade-out plays before DOM swap
+    const doRender = () => {
+      app.innerHTML = Header() +
+        `<main style="padding-top:${isHome?'0':'var(--header-h)'}">` + content + `</main>` +
+        Footer() + BottomNav();
+
+      // Fade main in
+      const newMain = app.querySelector('main');
+      if (newMain) {
+        newMain.style.opacity = '0';
+        newMain.style.transition = 'opacity 0.22s ease';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { newMain.style.opacity = '1'; });
+        });
+      }
+      this.afterRender();
+    };
+
+    if (oldMain) {
+      setTimeout(doRender, 160);
+    } else {
+      doRender();
+    }
   },
 
   afterRender() {
@@ -926,15 +953,15 @@ const App = {
     window.addEventListener('scroll', window._scrollH);
     window._scrollH();
 
-    // Reveal on scroll
+    // Reveal on scroll — no stagger delay, gentler threshold
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
+      entries.forEach((e) => {
         if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          e.target.classList.add('visible');
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
     // Sync scroll dots with services carousel
@@ -946,6 +973,8 @@ const App = {
         dots.forEach((d, i) => d.classList.toggle('active', i === Math.min(idx, dots.length-1)));
       }, { passive: true });
     }
+
+    // Image URL preview in product form
     const imgInput = document.getElementById('pImage');
     if (imgInput) {
       imgInput.addEventListener('input', () => {
@@ -1054,7 +1083,7 @@ document.addEventListener('click', e => {
   }
 });
 
-// ── Boot ───а───────────────────────────────────────────────────
+// ── Boot ──────────────────────────────────────────────────────
 async function boot() {
   try {
     await DB.loadProducts();

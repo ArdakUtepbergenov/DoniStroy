@@ -199,16 +199,6 @@ function productImg(p, style = '') {
   const src = p.imageUrl || CAT_IMG[p.category] || UNSPLASH.facade1;
   return `<img src="${src}" alt="${p.name}" style="${style}" loading="lazy" onerror="this.src='${CAT_IMG[p.category] || UNSPLASH.facade1}'">`;
 }
-// Footer
-function Footer() {
-  return `
-    <footer>
-      <div class="container">
-        <p>© ${new Date().getFullYear()} DoniStroi. Все права защищены.</p>
-      </div>
-    </footer>
-  `;
-}
 
 // ── Components ────────────────────────────────────────────────
 const Header = () => `

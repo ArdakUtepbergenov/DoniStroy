@@ -191,8 +191,8 @@ const Router = {
     this.handle(location.hash || '#home');
     window.addEventListener('hashchange', () => this.handle(location.hash));
   }
-   window.Router = Router;
 };
+window.Router = Router;
 
 // ── Image helper ──────────────────────────────────────────────
 function productImg(p, style = '') {

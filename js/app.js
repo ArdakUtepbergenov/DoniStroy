@@ -192,7 +192,6 @@ const Router = {
     window.addEventListener('hashchange', () => this.handle(location.hash));
   }
 };
-window.Router = Router;
 
 // ── Image helper ──────────────────────────────────────────────
 function productImg(p, style = '') {
@@ -206,7 +205,7 @@ const Header = () => `
   <div class="container">
     <div class="header-inner">
       <a href="#home" class="logo">
-        <img src="images/logo.png" alt="DoniStroi" class="logo-img">
+        <img src="images/logo.jpg" alt="DoniStroi" class="logo-img">
         <div class="logo-tagline">Фасадные материалы · Атырау</div>
       </a>
       <nav class="nav-links">
@@ -239,60 +238,62 @@ const Header = () => `
 
 const BottomNav = () => `
 <nav class="bottom-nav">
-  ...
+  <a href="#home" class="bnav-item ${State.currentPage==='home'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+    Главная
+  </a>
+  <a href="#catalog" class="bnav-item ${State.currentPage==='catalog'||State.currentPage==='product'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Каталог
+  </a>
+  <a class="bnav-item bnav-cta" onclick="openModal()" style="cursor:pointer" href="javascript:void(0)">
+    <div class="bnav-cta-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </div>
+  </a>
+  <a href="#services" class="bnav-item ${State.currentPage==='services'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12,2 2,7 12,12 22,7 12,2"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+    Услуги
+  </a>
+  <a href="#contacts" class="bnav-item ${State.currentPage==='contacts'?'active':''}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013 1.22h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.9a16 16 0 006 6l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    Контакты
+  </a>
 </nav>
-
 <a href="tel:+77751731067" class="float-phone" aria-label="Позвонить">
-  ...
-</a>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013 1.22h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.9a16 16 0 006 6l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+</a>`;
 
+const Footer = () => `
 <footer>
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo.png" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
+        <img src="images/logo.jpg" alt="DoniStroi" style="width:72px;height:72px;object-fit:contain;border-radius:50%;margin-bottom:0.75rem">
         <p>Производство и установка современных фасадных материалов в Атырау и Казахстане. Более 5 лет опыта.</p>
       </div>
-
-      <div class="footer-col">
-        <h5>Навигация</h5>
-        <ul>
-          <li><a href="#home">Главная</a></li>
-          <li><a href="#about">О компании</a></li>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#contacts">Контакты</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Услуги</h5>
-        <ul>
-          <li><a href="#services">Термопанели</a></li>
-          <li><a href="#services">Полифасад</a></li>
-          <li><a href="#services">Травертин</a></li>
-          <li><a href="#contacts">Бесплатный замер</a></li>
-          <li><a href="#contacts">3D визуализация</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Контакты</h5>
-        <ul>
-          <li><a href="tel:+77751731067">+7 775 173-10-67</a></li>
-          <li><a href="#contacts">Амандосова 74а, Атырау</a></li>
-          <li><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h5>Навигация</h5><ul>
+        <li><a href="#home">Главная</a></li><li><a href="#about">О компании</a></li>
+        <li><a href="#services">Услуги</a></li><li><a href="#catalog">Каталог</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Услуги</h5><ul>
+        <li><a href="#services">Термопанели</a></li><li><a href="#services">Полифасад</a></li>
+        <li><a href="#services">Травертин</a></li><li><a href="#contacts">Бесплатный замер</a></li>
+        <li><a href="#contacts">3D визуализация</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Контакты</h5><ul>
+        <li><a href="tel:+77751731067">+7 775 173-10-67</a></li>
+        <li><a href="#contacts">Амандосова 74а, Атырау</a></li>
+        <li><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></li>
+      </ul></div>
     </div>
-
     <div class="footer-bottom">
       <span>© ${new Date().getFullYear()} DoniStroi. Все права защищены.</span>
       <a href="#admin" style="color:var(--clr-muted);font-size:0.72rem">Вход для администратора</a>
     </div>
   </div>
-</footer>
-`;
+</footer>`;
 
 // ── Pages ─────────────────────────────────────────────────────
 const HomePage = () => `

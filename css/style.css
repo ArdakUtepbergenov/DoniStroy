@@ -235,12 +235,7 @@ h4 { font-size: 1.2rem; }
   transition: var(--transition);
 }
 .nav-phone:hover { color: var(--clr-accent); }
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 6px;
-}
+.hamburger { display: none !important; }
 .hamburger span {
   display: block;
   width: 24px; height: 1.5px;
@@ -1243,7 +1238,7 @@ footer {
 
   /* ── Nav: hide desktop elements, NO hamburger (bottom nav used instead) ─── */
   .nav-links, .nav-phone { display: none; }
-  .hamburger { display: none; }
+  .hamburger { display: none !important; }
   .mobile-nav { display: none !important; }
   .nav-cta .btn { display: none; }
 

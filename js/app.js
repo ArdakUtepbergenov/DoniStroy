@@ -209,15 +209,7 @@ function Footer() {
     </footer>
   `;
 }
-function ProductCard(p) {
-  return `
-    <div class="product-card">
-      ${productImg(p)}
-      <h3>${p.name}</h3>
-      <p>${p.price} ${p.unit}</p>
-    </div>
-  `;
-}
+
 // ── Components ────────────────────────────────────────────────
 const Header = () => `
 <header id="header">

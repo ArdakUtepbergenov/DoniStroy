@@ -217,7 +217,7 @@ const Header = () => `
         ${State.isAdmin ? `<a href="#admin" class="${State.currentPage==='admin'?'active':''}">Админ</a>` : ''}
       </nav>
       <div class="nav-cta">
-        <a href="tel:+77751731067" class="nav-phone">+7 775 173-10-67</a>
+        <a href="tel:+77759662991" class="nav-phone">+7 775 966-29-91</a>
         <button class="btn btn-primary btn-sm" onclick="openModal()">Заявка</button>
       </div>
     </div>
@@ -248,7 +248,7 @@ const BottomNav = () => `
     Контакты
   </a>
 </nav>
-<a href="tel:+77751731067" class="float-phone" aria-label="Позвонить">
+<a href="tel:+77759662991" class="float-phone" aria-label="Позвонить">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013 1.22h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 8.9a16 16 0 006 6l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
 </a>`;
 
@@ -271,7 +271,7 @@ const Footer = () => `
         <li><a href="#contacts">3D визуализация</a></li>
       </ul></div>
       <div class="footer-col"><h5>Контакты</h5><ul>
-        <li><a href="tel:+77751731067">+7 775 173-10-67</a></li>
+        <li><a href="tel:+77759662991">+7 775 966-29-91</a></li>
         <li><a href="#contacts">Амандосова 74а, Атырау</a></li>
         <li><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></li>
       </ul></div>
@@ -459,7 +459,7 @@ const HomePage = () => `
       <p>Бесплатная консультация, замер и 3D-проект — без обязательств</p>
       <div class="cta-actions">
         <button class="btn btn-primary" onclick="openModal()">Оставить заявку ${Icons.arrow}</button>
-        <a href="tel:+77751731067" class="btn btn-outline">${Icons.phone} Позвонить нам</a>
+        <a href="tel:+77759662991" class="btn btn-outline">${Icons.phone} Позвонить нам</a>
       </div>
     </div>
   </div>
@@ -691,7 +691,7 @@ const ProductPage = () => {
         </div>
         <div class="product-actions">
           <button class="btn btn-primary" onclick="openModal('${p.name}')" style="flex:1">Заказать ${Icons.arrow}</button>
-          <a href="tel:+77751731067" class="btn btn-outline">${Icons.phone}</a>
+          <a href="tel:+77759662991" class="btn btn-outline">${Icons.phone}</a>
         </div>
       </div>
     </div>
@@ -713,7 +713,7 @@ const ContactsPage = () => `
       <div class="reveal">
         <h2 style="margin-bottom:2rem">Мы всегда на связи</h2>
         <div class="contact-info">
-          <div class="contact-card"><div class="contact-icon">${Icons.phone}</div><div><div class="contact-label">Телефон</div><div class="contact-value"><a href="tel:+77751731067">+7 775 173-10-67</a></div></div></div>
+          <div class="contact-card"><div class="contact-icon">${Icons.phone}</div><div><div class="contact-label">Телефон</div><div class="contact-value"><a href="tel:+77759662991">+7 775 966-29-91</a></div></div></div>
           <div class="contact-card"><div class="contact-icon">${Icons.map}</div><div><div class="contact-label">Адрес</div><div class="contact-value">Амандосова 74а, Атырау</div></div></div>
           <div class="contact-card"><div class="contact-icon">${Icons.mail}</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:alikowmoldir@mail.ru">alikowmoldir@mail.ru</a></div></div></div>
         </div>
